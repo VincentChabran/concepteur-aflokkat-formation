@@ -1,0 +1,16 @@
+{
+   "name": "advanced-css",
+   "version": "1.0.0",
+   "description": "",
+   "main": "index.js",
+   "scripts": {
+      "dev": "parcel index.html",
+      "build": " parcel buid index.html --out-dir build"
+   },
+   "keywords": [],
+   "author": "",
+   "license": "ISC",
+   "devDependencies": {
+      "parcel-bundler": "^1.12.5"
+   }
+}

@@ -1,0 +1,25 @@
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
+
+body {
+   background-color: rgb(33, 33, 33);
+}
+
+.title {
+   background-color: red;
+   text-align: center;
+   display: inline-block;
+   width: 500px;
+}
+
+[data-tooltip] {
+   padding: 10;
+}
+
+[data-tooltip]:hover::before {
+   /* Pour affichier le contenue du data-tooltip ecrit dans HTML */
+   content: attr(data-tooltip);
+}

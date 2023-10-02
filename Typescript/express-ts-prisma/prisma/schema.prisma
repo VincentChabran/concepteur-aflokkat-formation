@@ -1,0 +1,36 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+// npx prisma migrate dev --name UN_NOM_RANDOM
+
+model User {
+  id Int @id @default(autoincrement())
+  username String 
+  email String @unique
+  admin Boolean @default(false)
+  profile Profile?
+
+  copineId Int? @unique
+  copine User? @relation("Couple", fields: [copineId], references: [id])
+  estLaCopineDe User? @relation("Couple")
+
+  managerId Int? @unique
+  manager User? @relation("Manage", fields: [managerId], references: [id])
+  estManageDe User? @relation("Manage")
+}
+
+model Profile {
+  id Int @id @default(autoincrement())
+  description String
+  userId Int @unique
+  user User @relation(fields: [userId], references: [id])
+}
